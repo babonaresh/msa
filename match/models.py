@@ -57,7 +57,7 @@ class Match(models.Model):
 
 class TeamPlayer(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
-    player = models.ForeignKey(User, on_delete=models.CASCADE, related_name='player')
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='player')
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='team')
 
     def created(self):
