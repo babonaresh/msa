@@ -25,7 +25,7 @@ SECRET_KEY = '^djq-@#pxu3!=20)*^!gpb)h2n0xd$c50bt60*!z1@_!!yx3j4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'msa',
     'match',
+    # 'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -1,0 +1,25 @@
+{% extends 'match/base.html' %}
+
+% load staticfiles %}
+{% block content %}
+
+
+    <div>
+        <marquee behavior="scroll" direction="left">Here we will show the upcoming matches details!</marquee>
+    <div id="wrapper">
+        <fieldset>
+            <legend padding style="font-size: 14px;height:10px;"> Upcoming Matches: </legend>
+             <div class="panel-heading">
+                        <ul class="nav nav-tabs">
+                            <li class="" style="margin-right: 2px;"><a href="#tab1default" data-toggle="tab">Live</a></li>
+                            <li class="center active" style="margin-left: 2px;margin-right: 2px;"><a href="#tab2default" data-toggle="tab">Results</a></li>
+                            <li class="" style="margin-left: 2px;margin-right: 2px;"><a href="#tab3default" data-toggle="tab">Schedule</a></li>
+                        </ul>
+                    </div>
+
+
+        </fieldset>
+        </div>
+    </div>
+
+{% endblock %}
