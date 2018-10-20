@@ -1,11 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>MSA</title>
-    <link rel="stylesheet"
-</head>
-<body>
+{% load static %}
+<html>
+    <head>
+        <title>Missouri Soccor Association</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    </head>
+        <body>
+            <div id="wrapper">
+             <h1>
+              <img src="{% static "images/foot_right.jpg" %}" alt="lunch" width="156" height="75" class="left" />
+             </h1>
+             <h1 class="h1">
+               Missouri Soccer Association
+             </h1>
+             </br>
+             <h3 align="center" >
+               Now get all the match details anytime,anywhere.
+             </h3>
+            </br>
 
-</body>
+            <div class="topnav">
+              <a class="active" >  Home</a>
+              <a href=""> Players</a>
+              <a href="{% url 'msa_app:matches' %}"> Matches</a>
+              <a href="">Teams</a>
+              <a href="">Stats</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+                {% else %}
+                     <a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                {% endif %}
+            </div>
+
+            </div>
+            {% block content %}
+
+
+            {% endblock %}
+        </body>
+
 </html>

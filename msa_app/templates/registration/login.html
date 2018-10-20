@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
+    {% if form.errors %}
+    <br />
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <br />
+    <br />
+
+    <form method="post" action="{% url 'login' %}">
+       <table align="center" cellpadding="30" > <tr><td> <b>Login As: </b> </td></tr> <tr> <td>  <div>
+           <button type="button" style="background: none" ><img src="{% static "images/admin.png" %}" alt="lunch" width="106" height="75"> Admin </img> </button> </div> </td>
+       <td> <div><button type="button" style="background: none" ><img src="{% static "images/coach.png" %}" alt="lunch" width="106" height="75" > Coach </img> </button>  </div> </td>
+           <td> <div> <button type="button" style="background: none" ><img src="{% static "images/referee.png" %}" alt="lunch" width="106" height="75" > Referee </img> </button> </div>
+       </td>
+           </tr>
+           </table>
+    </br>
+
+         {{ form.as_p }}
+        {% csrf_token %}
+
+
+        <input type="submit" value="login"/>
+        <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+{# Assumes you setup the password_reset view in your URLconf #}
+
+{% endblock %}

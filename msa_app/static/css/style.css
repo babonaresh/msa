@@ -67,6 +67,266 @@ figure {
     padding: 1rem;
 }
 
+html, body, ul, li, h1, h2, h4 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+h1 img {
+	display: block;
+}
+img {
+	border: 0;
+}
+a {
+	color: #F4B79A;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover {
+	color: #F8D9CA;
+	text-decoration: underline;
+}
+.more {
+	text-align: right;
+	margin-top: 0;
+	font-size: 10px;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+
+fieldset {
+
+    background: white;
+    width: 400px;
+    height: 420px;
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove ;
+}
+
+body {
+	background: brown repeat-x;
+	font: 11px tahoma, verdana, sans-serif;
+	color: #F4B79A;
+	padding: 20px;
+	text-align: center;
+}
+h3 {
+	font-size: 13px;
+	text-align: center;
+	 padding-left: 100px;
+}
+#wrapper {
+	text-align: left;
+	margin: auto;
+	width: 778px;
+	background: brown ;
+}
+#nav {
+	float: left;
+	width: 246px;
+}
+#nav img {
+	display: block;
+}
+#body {
+	float: right;
+	width: 479px;
+	padding-right: 5px;
+}
+.drk {
+	background: left url(/images/drk_bg.gif) repeat-y;
+}
+.drk .top {
+	background: top left url(/images/drk_top.gif) no-repeat;
+}
+.drk .bot {
+	background: bottom left url(/images/drk_top-17.gif) no-repeat;
+	padding: 10px;
+}
+.lit {
+	background: left url(/images/lit_bg.gif) repeat-y;
+}
+.lit .top {
+	background: top left url(/images/lit_top.gif) no-repeat;
+}
+.lit .bot {
+	background: bottom left url(/images/lit_bot.gif) no-repeat;
+}
+.pad {
+	padding: 11px 16px;
+}
+.diamond {
+	padding-left: 12px;
+	background: 0px 4px url(/images/bullet_drk_diamond.gif) no-repeat;
+}
+.lit .diamond {
+	background: 0px 4px url(/images/bullet_lit_diamond.gif) no-repeat;
+}
+h3 {
+	color: #fff;
+}
+#welcome p {
+	margin-bottom: 0;
+}
+#welcome .more {
+	margin: 0;
+	padding: 0;
+}
+#welcome .pad {
+	padding-bottom: 0px;
+}
+#news .more {
+	margin-bottom: 0;
+}
+#news .more a {
+	color: #fff;
+}
+#news .right {
+	margin-top: -4px;
+	margin-bottom: 0;
+	position: relative;
+}
+#news .pad {
+	margin-right: 180px;
+	padding-top: 0px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+#news .bot {
+	position: relative;
+	padding-bottom: 2px;
+}
+#news h2 {
+	padding-bottom: 12px;
+}
+#news h3 {
+	padding-bottom: 0px;
+	margin-bottom: 0;
+}
+#news p {
+	padding-left: 12px;
+	padding-top: 0;
+	margin: 0.8em 0 1em 0;
+	position: relative;
+}
+.drk h3 {
+	padding-left: 12px;
+	background: 0px 4px url(/images/bullet_drk_arr.gif) no-repeat;
+}
+.lit h3 {
+	padding-left: 12px;
+	background: 0px 4px url(/images/bullet_lit_arr.gif) no-repeat;
+}
+.event {
+	float: left;
+	width: 125px;
+	margin-top: 4px;
+	margin-right: 31px;
+	padding-bottom: 3px;
+}
+.event h3 {
+	margin-bottom: 0;
+}
+.event .more {
+	padding-bottom: 8px;
+}
+#features h3 {
+	margin-bottom: 0;
+}
+#features p {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 12px;
+}
+#features .more {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+#features .pad {
+	padding-left: 28px;
+}
+#foot {
+	background: url(/images/foot_bg.jpg) repeat-x;
+	color: #362E2B;
+	width: 778px;
+	text-align: left;
+	margin: auto;
+	text-indent: 4px;
+	position: relative;
+}
+#foot-left {
+	background: top left url(/images/foot_left.jpg) no-repeat;
+	padding: 15px 0;
+}
+#foot-ball {
+	background: top left url(/images/foot_right.jpg) no-repeat;
+	position: absolute;
+	left: 652px;
+	top: -62px;
+	width: 126px;
+	height: 110px;
+}
+#man {
+	background: bottom left url(/images/pic_1.jpg) no-repeat;
+	padding-bottom: 1px;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #A52A2A;
+    overflow: hidden;
+}
+
+.h1 {
+  height: 40px;
+  font-size:28px;
+  text-align: center;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnavl a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
 
 
 
