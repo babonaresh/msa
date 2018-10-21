@@ -1,7 +1,7 @@
 {% extends "base/base.html" %}
 {% load static %}
 {% block content %}
-<a href="#" class="btn btn-primary" class="topright">Add Team</a>
+<a href="{% url 'msa_app:team_new' %}" class="btn btn-primary" class="topright">Add Team</a>
 <div>
     <table class="table table-striped table-bordered table-hover">
         <thead>
@@ -14,14 +14,14 @@
         </tr>
         </thead>
         <tbody>
-        {% for team_list in teams %}
+        {% for team_list in team_list %}
             <tr>
                 <td><a href="team.html">{{team_list.team_name}}</a></td>
                 <td>{{ team_list.school }}</td>
                 <td>{{ team_list.active_status}}</td>
                 <td>{{ team_list.coach }}</td>
 
-                <td><a href="" class="btn btn-warning">Edit</a>
+                <td><a href="{% url 'msa_app:team_edit' pk=team_list.pk %}" class="btn btn-warning">Edit</a>
 
                 <td><a href=""
                        onclick="return confirm('Are you sure you want to delete?')"

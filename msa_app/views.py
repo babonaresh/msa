@@ -18,25 +18,38 @@ def matches(request):
 # Create your views here.
 
 
-def team_edit(request,pk):
-    team = get_object_or_404(Team,pk=pk)
+def team_edit(request, pk):
+    team = get_object_or_404(Team, pk=pk)
     if request.method == "POST":
         #update
-        form = Team(request.POST,instance=team)
-
-    if form.is_valid():
-        team = form.save(commit=False)
-        team.update_date = timezone.now()
-        team.save()
-        team = Team.objects.filter(create_date__lte=timezone.now())
-        return render(request, 'custom/team_edit.html', {'team': team})
-
+        form = TeamForm(request.POST,instance=team)
+        if form.is_valid():
+            team = form.save(commit=False)
+            team.updated_date = timezone.now()
+            team.save()
+            teams = Team.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'custom/team_edit.html', {'teams': teams})
     else:
         # edit
-        form = Team(instance = team)
-    return render(request, 'msa/team_edit.html', {'form': form})
+        form = TeamForm(instance = team)
+    return render(request, 'custom/team_edit.html', {'form': form})
+
+def team_new(request):
+    if request.method == "POST":
+        #update
+        form = TeamForm(request.POST)
+        if form.is_valid():
+            team = form.save(commit=False)
+            team.created_date = timezone.now()
+            team.save()
+            teams = Team.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'custom/team_list.html', {'team_list': teams})
+    else:
+        # edit
+        form = TeamForm()
+    return render(request, 'custom/team_edit.html', {'form': form})
 
 def team_list(request):
     team_list = Team.objects.filter(created_date__lte=timezone.now())
     return render(request, 'custom/team_list.html',
-                 {'teams': team_list})
+                 {'team_list': team_list})
