@@ -16,8 +16,7 @@ def matches(request):
                                                    'matches_full': matches_full,
                                                    'matches_all': matches_all})
 # Create your views here.
-
-
+@login_required
 def team_edit(request, pk):
     team = get_object_or_404(Team, pk=pk)
     if request.method == "POST":
@@ -28,12 +27,13 @@ def team_edit(request, pk):
             team.updated_date = timezone.now()
             team.save()
             teams = Team.objects.filter(created_date__lte=timezone.now())
-            return render(request, 'custom/team_edit.html', {'teams': teams})
+            return render(request, 'custom/team_list.html', {'team_list': teams})
     else:
         # edit
         form = TeamForm(instance = team)
     return render(request, 'custom/team_edit.html', {'form': form})
 
+@login_required
 def team_new(request):
     if request.method == "POST":
         #update

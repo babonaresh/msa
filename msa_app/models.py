@@ -14,7 +14,7 @@ class School(models.Model):
     city = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
     zipcode = models.CharField(max_length=10)
-    contact = models.CharField(max_length=50)
+    contact_person = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=50)
     created_date = models.DateTimeField(default=timezone.now)
@@ -44,7 +44,7 @@ class Field(models.Model):
     state = models.CharField(max_length=30)
     zipcode = models.CharField(max_length=10)
     owner_org = models.CharField(max_length=100)
-    contact = models.CharField(max_length=50)
+    contact_person = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=50)
     created_date = models.DateTimeField(default=timezone.now)
@@ -103,7 +103,7 @@ class Match(models.Model):
     match_end_time = models.TimeField(default=timezone.now)
     field = models.ForeignKey(Field, on_delete=models.SET_NULL, related_name='match_field', null=True)
     match_referee = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='match_referee', null=True)
-    match_status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='scheduled')
+    match_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='scheduled')
     home_team_score = models.IntegerField()
     guest_team_score = models.IntegerField()
     referee_comments = models.TextField()
@@ -128,12 +128,25 @@ class Player(models.Model):
         ('ineligible', 'Ineligible'),
         ('injured', 'Injured'),
     )
+    ROLE_CHOICES = (
+        ('captain', 'Captain'),
+        ('vice_captain', 'Vice Captain'),
+        ('none', 'None')
+    )
+    POSITION_CHOICES = (
+        ('goalkeeper', 'Goalkeeper'),
+        ('defender', 'Defender'),
+        ('midfielder', 'Midfielder'),
+        ('forward', 'Forward'),
+    )
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=30)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='player_team')
-    eligibility_status = models.CharField(max_length=10, choices=ELIGIBITY_CHOICES, default='eligible')
+    eligibility_status = models.CharField(max_length=20, choices=ELIGIBITY_CHOICES, default='eligible')
+    team_role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='none')
+    squad_position = models.CharField(max_length=20, choices=POSITION_CHOICES, default='forward')
     street = models.CharField(max_length=50)
     city = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
