@@ -13,10 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
 from django.contrib import admin
-from django.urls import path, re_path
 from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import path,include, re_path
 
 
 
@@ -25,5 +24,4 @@ urlpatterns = [
     path('', include('msa_app.urls')),
     re_path(r'^accounts/login/$', LoginView.as_view(template_name='registration/login.html'), name="login"),
     re_path(r'^accounts/logout/$', LogoutView.as_view(), LogoutView.next_page, name="logout"),
-
 ]

@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from .forms import *
-
-
+from django.contrib.auth.decorators import login_required
 
 now = timezone.now()
 def home(request):
@@ -33,5 +32,8 @@ def team_edit(request,pk):
         form = Team(instance = team)
     return render(request, 'msa/team_edit.html', {'form': form})
 
-
-
+@login_required
+def team_list(request):
+    team_list = Team.objects.filter(created_date__lte=timezone.now())
+    return render(request, 'custom/team_list.html',
+                 {'teams': team_list})

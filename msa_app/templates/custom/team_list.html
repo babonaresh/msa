@@ -1,8 +1,62 @@
-<html>
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Teams</title>
 </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Welcome to Missouri Soccer Association!</div>
+                    <div class="panel-body">
+                        MSA
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2 style="padding-left: 15Px">Teams </h2>
+        <a href="" class="btn btn-primary" class="topright">Add Team</a>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr class="bg-info">
+                <th>Team Name</th>
+                <th>School</th>
+                <th>Status</th>
+                <th>Coach</th>
+                <th colspan="3">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for team_list in teams %}
+                <tr>
+                    <td><a href="team.html">{{team_list.team_name}}</a></td>
+                    <td>{{ team_list.school }}</td>
+                    <td>{{ team_list.active_status}}</td>
+                    <td>{{ team_list.coach }}</td>
 
+                    <td><a href="" class="btn btn-warning">Edit</a>
 
+                    <td><a href=""
+                           onclick="return confirm('Are you sure you want to delete?')"
+                           class="btn btn-danger">Delete</a>
+                    </td>
+                    <td><a href=""
+                           class="btn btn-primary">Additional Details</a></td>
 
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-<html>
+    </div>
+    </body>
+    </html>
+{% endblock %}

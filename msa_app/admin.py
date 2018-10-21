@@ -41,7 +41,7 @@ class GoalList(admin.ModelAdmin):
 
 admin.site.register(School, SchoolList)
 admin.site.register(Field, FieldList)
-admin.site.register(Team, TeamList)
+admin.site.register(Team)
 admin.site.register(Match, MatchList)
 admin.site.register(Player, PlayerList)
 admin.site.register(Goal, GoalList)
