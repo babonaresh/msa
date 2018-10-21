@@ -3,3 +3,4 @@ msa_app/__pycache__
 msa_default/__pycache__
 msa_default/local_settings.py
 msa_default/backup_settings.py
+myvenv

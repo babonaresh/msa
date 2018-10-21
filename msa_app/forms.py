@@ -1,7 +1,7 @@
 from django import forms
-from .models import Match
+from .models import Team
 
-class MatchForm(forms.ModelForm):
+class TeamForm(forms.ModelForm):
     class Meta:
-        model = Match
-        fields = ('home_team', 'guest_team')
+        model = Team
+        fields = ('team_name','school','active_status','coach')

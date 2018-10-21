@@ -1,15 +1,10 @@
 from django.shortcuts import render
 from .models import *
 from .forms import *
+from django.contrib.auth.decorators import login_required
 
-
-
-now = timezone.now()
-def home(request):
-   return render(request, 'base/home.html',
-                 {'base': home})
-
-def matches(request):
-    matches = Match.objects.filter(created_date__lte=timezone.now())
-    return render(request, 'custom/matches.html', {'match': matches})
-# Create your views here.
+@login_required
+def team_list(request):
+    team_list = Team.objects.filter(created_date__lte=timezone.now())
+    return render(request, 'custom/team_list.html',
+                 {'teams': team_list})
