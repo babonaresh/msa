@@ -9,8 +9,12 @@ def home(request):
                  {'base': home})
 
 def matches(request):
-    matches = Match.objects.filter(created_date__lte=timezone.now())
-    return render(request, 'custom/matches.html', {'match': matches})
+    matches_sch = Match.objects.filter(match_status='scheduled')
+    matches_full = Match.objects.filter(match_status='full_time')
+    matches_all = Match.objects.filter(created_date=timezone.now())
+    return render(request, 'custom/matches.html', {'matches_sch': matches_sch,
+                                                   'matches_full': matches_full,
+                                                   'matches_all': matches_all})
 # Create your views here.
 
 
