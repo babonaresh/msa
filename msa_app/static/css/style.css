@@ -11,6 +11,10 @@
     margin: 1rem;
 }
 
+.navbar {
+    border-bottom:1px solid #d3d3d3;
+}
+
 [class^="icon-"], [class*=" icon-"] {
     display: inline-block;
     width: 100%;
