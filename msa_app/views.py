@@ -11,7 +11,7 @@ def home(request):
 def matches(request):
     matches_sch = Match.objects.filter(match_status='scheduled')
     matches_full = Match.objects.filter(match_status='full_time')
-    matches_all = Match.objects.filter(created_date=timezone.now())
+    matches_all = Match.objects.filter(created_date__lte=timezone.now())
     return render(request, 'custom/matches.html', {'matches_sch': matches_sch,
                                                    'matches_full': matches_full,
                                                    'matches_all': matches_all})
