@@ -13,6 +13,8 @@
                 {{team.school}}<br>
                 Coach - {{team.coach}}
             </p>
+            <a href="{% url 'msa_app:team_edit' pk=team.pk %}" class="card-link">Edit</a>
+            <a href="{% url 'crm:team_delete' pk=team.pk %}" onclick="return confirm('Are you sure you want to Delete?')" class="card-link">Delete</a>
         </div>
     </div>
 </div>

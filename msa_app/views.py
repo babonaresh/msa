@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
@@ -53,3 +53,10 @@ def team_list(request):
     team_list = Team.objects.filter(created_date__lte=timezone.now())
     return render(request, 'custom/team_list.html',
                  {'team_list': team_list})
+
+@login_required
+
+def team_delete(request, pk):
+    team = get_object_or_404(Team, pk=pk)
+    team.delete()
+    return redirect('msa_app:team_list')
