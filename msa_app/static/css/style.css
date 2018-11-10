@@ -11,8 +11,21 @@
     margin: 1rem;
 }
 
+.fa-trash{
+    color: crimson;
+}
+
+a.fa-icons{
+    text-decoration: none;
+    color: #999999;
+}
+
 .navbar {
     border-bottom:1px solid #d3d3d3;
+}
+
+.nav-item {
+    font-family: 'Poppins';
 }
 
 [class^="icon-"], [class*=" icon-"] {
