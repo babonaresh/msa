@@ -154,7 +154,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-try:
-    from .local_settings import *
-except ImportError:
-    print('Import Error')
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     print('Import Error')
