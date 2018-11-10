@@ -20,11 +20,6 @@
                             <tbody>
                                 {% for match in matches_sch %}
                                 <tr>
-                                    <td style="text-align: right">{{ match.home_team}}</td>
-                                    <td style="text-align: center"><strong>vs</strong></td>
-                                    <td>{{ match.guest_team }}</td>
-                                    <td>{{ match.match_day }}, {{ match.match_start_time }}</td>
-                                    <td>{{ match.field }}</td>
                                     <td>
                                         <a class="fa-icons" href="#">
                                             <i class="fa fa-eye"></i>
@@ -37,7 +32,16 @@
                                         <a class="fa-icons" href="#">
                                             <i class="fa fa-trash"></i>
                                         </a>
+                                        &nbsp
+                                        <a class="fa-icons" href="#">
+                                            <i class="fa fa-play-circle"></i>
+                                        </a>
                                     </td>
+                                    <td style="text-align: right">{{ match.home_team}}</td>
+                                    <td style="text-align: center"><strong>vs</strong></td>
+                                    <td>{{ match.guest_team }}</td>
+                                    <td>{{ match.match_day }}, {{ match.match_start_time }}</td>
+                                    <td>{{ match.field }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

@@ -2,6 +2,9 @@ from django.conf.urls import url
 from . import views
 from django.urls import path, re_path
 
+from django.conf import settings
+from django.views.static import serve
+
 app_name = 'msa_app'
 urlpatterns = [
     path('', views.home, name='home'),
@@ -12,3 +15,9 @@ urlpatterns = [
     path('team/new/', views.team_new, name='team_new'),
     path('team/<int:pk>/delete/', views.team_delete, name='team_delete'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$',
+            serve, {'document_root': settings.MEDIA_ROOT,})
+    ]

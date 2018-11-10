@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
+/* Font Awesome */
 .fa-users{
     color: #ff383f;
     font-size: 6em;
@@ -20,6 +21,7 @@ a.fa-icons{
     color: #999999;
 }
 
+/* Navigation bar */
 .navbar {
     border-bottom:1px solid #d3d3d3;
 }
@@ -33,12 +35,14 @@ a.fa-icons{
     width: 100%;
 }
 
+/* Team cards */
+.card {
+    font-family: 'Poppins';
+}
+
 td i{
     text-align: center;
 }
-
-
-
 
 
 /*---Media Queries --*/
