@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid padding">
+<div class="row text-center">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+        <div class="msa-scorecard row text-center">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-left mt-2">
+                <h6>{{match.match_day}} | {{match.field}} | Started at {{match.match_start_time}}</h6>
+                <hr>
+            </div>
+            <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="{{ home_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="125">
+                <h3>{{home_team.team_name}}</h3>
+            </div>
+            <div class="col-4 col-sm-4 col-md-4 col-lg-4 my-auto">
+                <spam class="msa-livescore">
+                    {{match.home_team_score}} - {{match.guest_team_score}}
+                </spam>
+                <p class="msa-livescore-sub">
+                {% if match.match_status == 'scheduled' %}
+                    Scheduled
+                {% elif match.match_status == 'in_progress'%}
+                    In Progress
+                {% elif match.match_status == 'full_time'%}
+                    Full Time
+                {% elif match.match_status == 'cancelled'%}
+                    Cancelled
+                {% elif match.match_status == 'abandoned'%}
+                    Abandoned
+                {% else %}
+                    Status - Not Available
+                {% endif %}
+
+                </p>
+            </div>
+            <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                <img src="{{ guest_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="125">
+                <h3>{{guest_team.team_name}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-left">
+        The match details and match links would be added here
+    </div>
+</div>
+</div>
+{% endblock %}

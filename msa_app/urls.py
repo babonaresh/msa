@@ -11,6 +11,7 @@ urlpatterns = [
     re_path(r'^home/$', views.home, name='home'),
     path('team_list', views.team_list, name='team_list'),
     path('matches', views.matches, name='matches'),
+    path('matches/<int:pk>/live/', views.live_match, name='live_match'),
     path('team/<int:pk>/edit/', views.team_edit, name='team_edit'),
     path('team/new/', views.team_new, name='team_new'),
     path('team/<int:pk>/delete/', views.team_delete, name='team_delete'),

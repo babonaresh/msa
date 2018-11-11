@@ -15,6 +15,16 @@ def matches(request):
     return render(request, 'custom/matches.html', {'matches_sch': matches_sch,
                                                    'matches_full': matches_full,
                                                    'matches_all': matches_all})
+
+@login_required
+def live_match(request, pk):
+    match = get_object_or_404(Match, pk=pk)
+    home_team = match.home_team
+    guest_team = match.guest_team
+    return render(request, 'custom/live.html', {'match': match,
+                                                'home_team': home_team,
+                                                'guest_team': guest_team})
+
 # Create your views here.
 @login_required
 def team_edit(request, pk):

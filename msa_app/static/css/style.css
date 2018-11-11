@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Poppins:400,500,700');
 
 /* Font Awesome */
 .fa-users{
@@ -44,6 +44,41 @@ td i{
     text-align: center;
 }
 
+/* MSA Custom CSS */
+body {
+    font-family: 'Open Sans';
+}
+
+h1 {
+    font-family: 'Poppins';
+    font-weight: lighter;
+}
+
+h2, h3 {
+    font-family: 'Poppins';
+    font-weight: bold;
+}
+
+.msa-scorecard {
+    /*background: #eeeeee;*/
+    background: #efefef;
+    color: #505050;
+    margin: 5px 10px 5px 10px;
+}
+
+.msa-livescore {
+    font-family: 'Poppins';
+    padding: 5px 25px 5px 25px;
+    background: #ff3b3f;
+    color: #ffffff;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.msa-livescore-sub {
+    font-weight: lighter;
+    padding: 10px;
+}
 
 /*---Media Queries --*/
 @media (max-width: 992px) {
@@ -53,7 +88,30 @@ td i{
 
 }
 @media (max-width: 576px) {
-
+    h3 {
+        font-size: 1.1rem;
+    }
+    .msa-livescore {
+        font-family: 'Poppins';
+        padding: 5px 15px 5px 15px;
+        background: #ff3b3f;
+        color: #ffffff;
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+    .msa-livescore-sub {
+        font-weight: lighter;
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+    .msa-scorecard {
+        background: #efefef;
+        color: #505050;
+        margin: 5px 0px 5px 0px;
+    }
+    h6 {
+        font-size: 0.8rem;
+    }
 }
 
 
