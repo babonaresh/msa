@@ -2,6 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
+from django.core.mail import send_mail
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib import messages
+from django.http import HttpResponse, HttpResponseRedirect
 
 now = timezone.now()
 def home(request):
@@ -117,3 +123,117 @@ def player_delete(request, pk):
     player = get_object_or_404(Player, pk=pk)
     player.delete()
     return redirect('msa_app:player_list')
+
+
+@login_required
+def role_list(request):
+    user_list = User.objects.all()
+    role_list = Msarole.objects.all()
+    form = AssignRoleForm()
+    return render(request, 'custom/roles.html', {'roles_list': role_list, 'user_list': user_list, 'form': form, 'sent':False})
+
+
+@login_required
+def assign_role(request):
+    form = AssignRoleForm(request.POST or None)
+    sent = False
+    user_list = User.objects.all()
+    role_list = Msarole.objects.all()
+    if request.method == "POST":
+        form = AssignRoleForm(request.POST)
+        if form.is_valid():
+            assignrole = form.save(commit=False)
+            # validate the emailid (alert if already exists with same role)
+            assignrole.save()
+            cd = form.cleaned_data
+           # post_url = request.build_absolute_uri(post.get_absolute_url())
+            subject = 'Activate your MSA account as ' + cd['role']
+            message = 'Please register at MSA as  '
+
+            send_mail(subject, message, 'mavstaruno@gmail.com', [cd['receiver_email']])
+            sent = True
+
+            form = AssignRoleForm()
+            return render(request, 'custom/roles.html', {'roles_list': role_list, 'user_list': user_list, 'form': form, 'sent': sent})
+    else:
+        form = AssignRoleForm()
+    # print("Else")
+    #return render(request, 'custom/assign_roles.html', {'form': form})
+    return render(request, 'custom/roles.html',
+                  {'roles_list': role_list, 'user_list': user_list, 'form': form, 'sent': sent})
+
+
+def login_view(request):
+    title = "Login"
+    form = UserLoginForm(request.POST or None)
+    if form.is_valid():
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        return redirect('msa_app:home')
+    return render(request, 'registration/login_form.html', {'form': form, 'title': title})
+
+
+def register_view(request):
+    title = 'Register'
+    form = UserRegisterForm(request.POST or None)
+    if form.is_valid():
+        user = form.save(commit=False)
+        password = form.cleaned_data.get('password')
+        email = form.cleaned_data.get('email')
+        user.set_password(password)
+        user.is_staff = True
+        user.save()
+
+        msarole = Msarole.objects.get(receiver_email=email)
+        group_name = msarole.role
+        print('group_name---', group_name)
+        my_group = Group.objects.get(name=group_name)
+        print('my_group--', my_group)
+        my_group.user_set.add(user)
+
+        msarole.registered = 'Yes'
+        msarole.save()
+        new_user = authenticate(username=user.username, password=password)
+        login(request, new_user)
+        return redirect('msa_app:home')
+
+    context = {
+        "form": form,
+        "title": title
+    }
+    return render(request, "registration/login_form.html", context)
+
+
+def register_success(request):
+    return render(request, 'registration/success.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('msa_app:home')
+
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        print('form--', form)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            print('form-valid-', form)
+            #return redirect('msa_app:home')
+            return HttpResponseRedirect('/password/success/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+        print('form-new-', form)
+    return render(request, 'registration/change_password.html', {'form': form })
+
+
+def password_success(request):
+    return render(request, 'registration/change_password_success.html')
