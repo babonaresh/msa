@@ -10,6 +10,9 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 
 now = timezone.now()
+
+# Homepage Views
+#################
 def home(request):
     matches_sch = Match.objects.filter(match_status='scheduled')
     matches_full = Match.objects.filter(match_status='full_time')
@@ -20,6 +23,8 @@ def home(request):
                                               'matches_live': matches_live,
                                               'team_logo_live': team_live})
 
+# Match Views
+#############
 def match_list(request):
     matches_sch = Match.objects.filter(match_status='scheduled')
     matches_full = Match.objects.filter(match_status='full_time')
@@ -41,7 +46,8 @@ def match_detail(request, pk):
                                                 'home_goals': home_goals,
                                                 'guest_goals': guest_goals})
 
-# Create your views here.
+# Team Views
+#############
 @login_required
 def team_edit(request, pk):
     team = get_object_or_404(Team, pk=pk)
@@ -87,6 +93,9 @@ def team_delete(request, pk):
     team.delete()
     return redirect('msa_app:team_list')
 
+
+# Player Views
+##############
 def player_list(request):
     player_list = Player.objects.filter(created_date__lte=timezone.now())
     return render(request, 'custom/player_list.html',
@@ -110,7 +119,7 @@ def player_new(request):
             player = form.save(commit=False)
             player.created_date = timezone.now()
             player.save()
-            players = Team.objects.filter(created_date__lte=timezone.now())
+            players = Player.objects.filter(created_date__lte=timezone.now())
             return render(request, 'custom/player_list.html', {'player_list': players})
     else:
         # edit
@@ -143,6 +152,8 @@ def player_delete(request, pk):
     return redirect('msa_app:player_list')
 
 
+#Role Views
+###########
 @login_required
 def role_list(request):
     user_list = User.objects.all()
@@ -181,6 +192,8 @@ def assign_role(request):
                   {'roles_list': role_list, 'user_list': user_list, 'form': form, 'sent': sent})
 
 
+#Session Views
+##############
 def login_view(request):
     title = "Login"
     form = UserLoginForm(request.POST or None)

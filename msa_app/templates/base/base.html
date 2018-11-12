@@ -42,7 +42,7 @@
                 {% endif %}
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'msa_app:myteamplayer_list' pk=user.pk %}" >MyTeamPlayer</a>
+                    <a class="nav-link" href="{% url 'msa_app:myteamplayer_list' pk=user.pk %}" >My Team</a>
                 </li>
                 {% endif %}
             </ul>
