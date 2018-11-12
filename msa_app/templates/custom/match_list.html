@@ -21,7 +21,7 @@
                                 {% for match in matches_sch %}
                                 <tr>
                                     <td>
-                                        <a class="fa-icons" href="#">
+                                        <a class="fa-icons" href="{% url 'msa_app:match_detail' pk=match.pk %}">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         &nbsp

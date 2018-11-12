@@ -8,20 +8,20 @@ def home(request):
    return render(request, 'base/home.html',
                  {'base': home})
 
-def matches(request):
+def match_list(request):
     matches_sch = Match.objects.filter(match_status='scheduled')
     matches_full = Match.objects.filter(match_status='full_time')
     matches_all = Match.objects.filter(created_date__lte=timezone.now())
-    return render(request, 'custom/matches.html', {'matches_sch': matches_sch,
+    return render(request, 'custom/match_list.html', {'matches_sch': matches_sch,
                                                    'matches_full': matches_full,
                                                    'matches_all': matches_all})
 
 @login_required
-def live_match(request, pk):
+def match_detail(request, pk):
     match = get_object_or_404(Match, pk=pk)
     home_team = match.home_team
     guest_team = match.guest_team
-    return render(request, 'custom/live.html', {'match': match,
+    return render(request, 'custom/match_detail.html', {'match': match,
                                                 'home_team': home_team,
                                                 'guest_team': guest_team})
 

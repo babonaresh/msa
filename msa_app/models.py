@@ -183,4 +183,4 @@ class Goal(models.Model):
         self.save()
 
     def __str__(self):
-        return str(self.first_name) + ' ' + str(self.last_name)
+        return str(self.player) + ' - ' + str(self.created_date) + ' - ' + str(self.goal_minute)

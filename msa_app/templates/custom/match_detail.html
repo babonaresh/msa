@@ -3,12 +3,14 @@
 {% block content %}
 <div class="container-fluid padding">
 <div class="row text-center">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-        <div class="msa-scorecard row text-center">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-left mt-2">
+    <div class="msa-scorecard col-12 col-sm-12 col-md-12 col-lg-6">
+        <div class="row text-left mt-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <h6>{{match.match_day}} | {{match.field}} | Started at {{match.match_start_time}}</h6>
                 <hr>
             </div>
+        </div>
+        <div class="row mx-1">
             <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                 <img src="{{ home_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="125">
                 <h3>{{home_team.team_name}}</h3>
@@ -39,9 +41,19 @@
                 <h3>{{guest_team.team_name}}</h3>
             </div>
         </div>
+        <div class="row mx-1">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <hr>
+                Somthing
+            </div>
+        </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-left">
-        The match details and match links would be added here
+        <!--h1>Add Goal</h1>
+        <form method="POST" class="goal-form">{%csrf_token%}
+            {{form|crispy}}
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form-->
     </div>
 </div>
 </div>
