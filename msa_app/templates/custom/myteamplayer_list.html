@@ -1,0 +1,42 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div class="col-md-12">
+
+            <table class="table table-striped table-bordered table-hover">
+                  <thead>
+                 <tr class="bg-info">
+                      <th>PLAYER NAME </th>
+                      <th>ROLE IN TEAM</th>
+                      <th>SQUAD POSITION</th>
+
+
+                  </tr>
+                     <div class="col-xs4- col-sm-4 col-md-2 col-lg-1">
+                         <a href="{% url 'msa_app:player_new' %}"  class="btn btn-light">
+                         <i class="fas fa-plus"></i>
+                         </a>
+                     </div>
+                  </thead>
+                  <tbody>
+                  {% for player in myplayer %}
+                  <tr>
+                      <td>{{ player.first_name}}{{ player.last_name }}</td>
+                      <td>{{ player.team_role }}</td>
+                      <td>{{ player.squad_position }}</td>
+
+                      <td><a href="{% url 'msa_app:player_edit' pk=player.pk %}" class="card-link">Edit</a></td>
+                      <td><a href="{% url 'msa_app:player_delete' pk=player.pk %}" onclick="return confirm('Are you sure you want to Delete?')" class="card-link">Delete</a></td>
+                  </tr>
+                  {% endfor %}
+
+                  </tbody>
+              </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
