@@ -9,6 +9,11 @@ app_name = 'msa_app'
 urlpatterns = [
     path('', views.home, name='home'),
     re_path(r'^home/$', views.home, name='home'),
+
+    url(r'^register/success/$', views.register_success, name='success'),
+    url(r'^password/$', views.change_password, name='change_password'),
+    url(r'^password/success/$', views.password_success, name='password_success'),
+
     path('team_list', views.team_list, name='team_list'),
     path('match_list', views.match_list, name='match_list'),
     path('match/<int:pk>/', views.match_detail, name='match_detail'),
@@ -19,6 +24,9 @@ urlpatterns = [
     path('player/new/', views.player_new, name='player_new'),
     path('player/<int:pk>/edit/', views.player_edit, name='player_edit'),
     path('player/<int:pk>/delete/', views.player_delete, name='player_delete'),
+
+    path('assign_role', views.assign_role, name='assign_role'),
+    path('roles', views.role_list, name='role_list'),
 ]
 
 if settings.DEBUG:

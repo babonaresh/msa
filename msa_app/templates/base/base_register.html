@@ -22,26 +22,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'msa_app:home' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'msa_app:match_list' %}">Matches</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'msa_app:team_list' %}">Teams</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'msa_app:player_list' %}">Players</a>
-                </li>
-                 {% if request.user.is_superuser or user.groups.all and user.groups.all.0.name == "Admin" %}
-                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'msa_app:role_list' %}">Roles</a>
-                </li>
-                {% endif %}
-            </ul>
-            <ul class="navbar-nav ml-auto">
+            <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,7 +45,16 @@
         </div>
     </div>
 </nav>
-{% block content %}
-{% endblock %}
-</body>
+<br/>
+<div style="margin-left:10%" align=center>
+<div class='col-sm-8 col-sm-offset-3'>
+
+              {% block body %}
+              {% endblock %}
+        </div>
+</div>
+
+
+
+  </body>
 </html>
