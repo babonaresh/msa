@@ -27,9 +27,13 @@ def match_detail(request, pk):
     match = get_object_or_404(Match, pk=pk)
     home_team = match.home_team
     guest_team = match.guest_team
+    home_goals = Goal.objects.filter(match=match, team=home_team)
+    guest_goals = Goal.objects.filter(match=match, team=guest_team)
     return render(request, 'custom/match_detail.html', {'match': match,
                                                 'home_team': home_team,
-                                                'guest_team': guest_team})
+                                                'guest_team': guest_team,
+                                                'home_goals': home_goals,
+                                                'guest_goals': guest_goals})
 
 # Create your views here.
 @login_required
@@ -109,7 +113,7 @@ def player_edit(request, pk):
             player = form.save(commit=False)
             player.updated_date = timezone.now()
             player.save()
-            players = Team.objects.filter(created_date__lte=timezone.now())
+            players = Player.objects.filter(created_date__lte=timezone.now())
             return render(request, 'custom/player_list.html', {'player_list': players})
     else:
         # edit

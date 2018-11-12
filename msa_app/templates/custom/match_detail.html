@@ -42,9 +42,11 @@
             </div>
         </div>
         <div class="row mx-1">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-left">
                 <hr>
-                Somthing
+                {% for goal in goals%}
+                    <p>{{goal.player}}</p>
+                {% endfor%}
             </div>
         </div>
     </div>

@@ -37,7 +37,10 @@
                                             <i class="fa fa-play-circle"></i>
                                         </a>
                                     </td>
-                                    <td style="text-align: right">{{ match.home_team}}</td>
+                                    <td style="text-align: right">
+                                        <img src="{{ team.team_logo.url }}" width="20">
+                                        {{ match.home_team}}
+                                    </td>
                                     <td style="text-align: center"><strong>vs</strong></td>
                                     <td>{{ match.guest_team }}</td>
                                     <td>{{ match.match_day }}, {{ match.match_start_time }}</td>
