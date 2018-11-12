@@ -70,3 +70,50 @@ def team_delete(request, pk):
     team = get_object_or_404(Team, pk=pk)
     team.delete()
     return redirect('msa_app:team_list')
+
+def player_list(request):
+    player_list = Player.objects.filter(created_date__lte=timezone.now())
+    return render(request, 'custom/player_list.html',
+                 {'player_list': player_list})
+
+
+@login_required
+def player_new(request):
+    if request.method == "POST":
+        #update
+        form = PlayerForm(request.POST)
+        if form.is_valid():
+            player = form.save(commit=False)
+            player.created_date = timezone.now()
+            player.save()
+            players = Team.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'custom/player_list.html', {'player_list': players})
+    else:
+        # edit
+        form = PlayerForm()
+    return render(request, 'custom/player_edit.html', {'form': form})
+
+@login_required
+def player_edit(request, pk):
+    player = get_object_or_404(Player, pk=pk)
+    if request.method == "POST":
+        #update
+        form = PlayerForm(request.POST,instance=player)
+        if form.is_valid():
+            player = form.save(commit=False)
+            player.updated_date = timezone.now()
+            player.save()
+            players = Team.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'custom/player_list.html', {'player_list': players})
+    else:
+        # edit
+        form = PlayerForm(instance = player)
+    return render(request, 'custom/player_edit.html', {'form': form})
+
+
+@login_required
+
+def player_delete(request, pk):
+    player = get_object_or_404(Player, pk=pk)
+    player.delete()
+    return redirect('msa_app:player_list')
