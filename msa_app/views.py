@@ -11,8 +11,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 now = timezone.now()
 def home(request):
-   return render(request, 'base/home.html',
-                 {'base': home})
+    matches_sch = Match.objects.filter(match_status='scheduled')
+    matches_full = Match.objects.filter(match_status='full_time')
+    matches_live = Match.objects.filter(match_status='in_progress')
+    team_live = Team.objects.filter(id=1)
+    return render(request, 'base/home.html', {'matches_sch': matches_sch,
+                                              'matches_full': matches_full,
+                                              'matches_live': matches_live,
+                                              'team_logo_live': team_live})
 
 def match_list(request):
     matches_sch = Match.objects.filter(match_status='scheduled')
@@ -85,6 +91,14 @@ def player_list(request):
     player_list = Player.objects.filter(created_date__lte=timezone.now())
     return render(request, 'custom/player_list.html',
                  {'player_list': player_list})
+
+@login_required
+def myteamplayer_list(request, pk):
+    coach_id = get_object_or_404(User, pk=pk)
+    teamid = get_object_or_404(Team, coach_id=pk)
+    myPlayer = Player.objects.filter(team=teamid.id)
+    return render(request, 'custom/myteamplayer_list.html',
+                            {'myplayer': myPlayer})
 
 
 @login_required

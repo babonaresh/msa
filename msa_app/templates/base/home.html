@@ -1,12 +1,92 @@
 {% extends 'base/base.html' %}
 
-% load staticfiles %}
+{% load staticfiles %}
 {% block content %}
 
 <div class="container-fluid">
     <div class="row jumbotron">
         <h1>LIVE</h1>
+        <div class="control-group">
+                   <div class="table-responsive">
+                        <table width="300px">
+                            <tbody>
+                                {% for matcheslive in matches_live %}
+                                <tr>
+                                    <div class="card bg-light">
+
+                                            <td style="text-align: right">{{ matcheslive.home_team}}</td>
+                                            <td style="text-align: center"><strong>vs</strong></td>
+                                            <td>{{ matcheslive.guest_team }}</td>
+
+
+                                    </div>
+                                </tr>
+
+                                {% endfor %}
+                            </tbody>
+                      </table>
+                </div>
+        </div>
     </div>
 </div>
+
+
+<table width="1500px" cellpadding="10px"cellspacing="10px">
+    <tr>
+        <td width="650px" border="2px">
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Upcoming Matches</legend>
+                <div class="control-group">
+                   <div class="table-responsive">
+                        <table width="300px">
+                            <tbody>
+                                {% for match in matches_sch %}
+                                <tr>
+                                    <div class="card bg-light">
+
+                                            <td style="text-align: right">{{ match.home_team}}</td>
+                                            <td style="text-align: center"><strong>vs</strong></td>
+                                            <td>{{ match.guest_team }}</td>
+                                            <td> at - {{ match.match_day }} </td>
+
+                                    </div>
+                                </tr>
+
+                                {% endfor %}
+                            </tbody>
+                      </table>
+                </div>
+                </div>
+            </fieldset>
+        </td>
+        <td>
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Results</legend>
+                <div class="control-group">
+                   <div class="table-responsive">
+                        <table width="300px">
+                            <tbody>
+                                {% for matchesfull in matches_full %}
+                                <tr>
+                                    <div class="card bg-light">
+
+                                            <td style="text-align: right">{{ matchesfull.home_team}}</td>
+                                            <td style="text-align: center"><strong>vs</strong></td>
+                                            <td>{{ matchesfull.guest_team }}</td>
+                                             <td> at - {{ matchesfull.match_day }} </td>
+
+                                    </div>
+                                </tr>
+
+                                {% endfor %}
+                            </tbody>
+                      </table>
+                </div>
+                </div>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+
 
 {% endblock %}
