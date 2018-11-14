@@ -2,51 +2,69 @@
 
 {% load staticfiles %}
 {% block content %}
+{% load crispy_forms_tags %}
 
 <div class="container-fluid">
-    <div class="row jumbotron">
-        <h1>LIVE</h1>
-        <div class="control-group">
-                   <div class="table-responsive">
-                        <table width="300px">
-                            <tbody>
-                                {% for matcheslive in matches_live %}
-                                <tr>
-                                    <div class="card bg-light">
+    <h3>LIVE</h3>
 
-                                            <td style="text-align: right">{{ matcheslive.home_team}}</td>
-                                            <td style="text-align: center"><strong>vs</strong></td>
-                                            <td>{{ matcheslive.guest_team }}</td>
+              <div class="row text-center">
+                <div class=" col-12 col-sm-12 col-md-12 col-lg-6">
+                    <table width="850px" border="1px"><tr>
+                  {% for matcheslive in matches_live %}
+                        <td width="80px" padding="5px">
+
+                        <div>
+                            <b> {{matcheslive.field}} | Started at {{matcheslive.match_start_time}}</b>
+                            <hr>
+                        </div>
 
 
-                                    </div>
-                                </tr>
+                        <div class="row">
+                            <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                                <img src="{{ matcheslive.home_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"><br/>
+                                <b>{{matcheslive.home_team}}</b>
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-4 col-lg-4 my-auto">
+                                <span class="msa-livescore">
+                                    {{matcheslive.home_team_score}} - {{matcheslive.guest_team_score}}
+                                </span>
+                                <p class="msa-livescore-sub">
 
-                                {% endfor %}
-                            </tbody>
-                      </table>
-                </div>
-        </div>
-    </div>
+                                    In Progress
+                                </p>
+                            </div>
+                       <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                           <img src="{{ matcheslive.guest_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                        <b>{{ matcheslive.guest_team}}</b>
+                    </div>
+                    </div>
+                            </td>
+                    {% endfor %}
+                </tr></table>
+              </div>
+            </div>
+
 </div>
 
 
-<table width="1500px" cellpadding="10px"cellspacing="10px">
+<table width="1250px" cellpadding="10px"cellspacing="10px">
     <tr>
         <td width="650px" border="2px">
             <fieldset class="scheduler-border">
                 <legend class="scheduler-border">Upcoming Matches</legend>
                 <div class="control-group">
                    <div class="table-responsive">
-                        <table width="300px">
+                        <table width="450px" cellpadding="10px"cellspacing="10px">
                             <tbody>
                                 {% for match in matches_sch %}
-                                <tr>
+                                <tr style="border-bottom: 1px solid red">
                                     <div class="card bg-light">
 
-                                            <td style="text-align: right">{{ match.home_team}}</td>
+                                            <td style="text-align: right"><img src="{{ match.home_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                                              <b>{{ match.home_team}}</b></td>
                                             <td style="text-align: center"><strong>vs</strong></td>
-                                            <td>{{ match.guest_team }}</td>
+                                            <td><img src="{{ match.guest_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                                              <b>{{ match.guest_team}}</b></td>
                                             <td> at - {{ match.match_day }} </td>
 
                                     </div>
@@ -64,16 +82,18 @@
                 <legend class="scheduler-border">Results</legend>
                 <div class="control-group">
                    <div class="table-responsive">
-                        <table width="300px">
+                        <table width="450px" cellpadding="10px"cellspacing="10px">
                             <tbody>
                                 {% for matchesfull in matches_full %}
-                                <tr>
+                                <tr style="border-bottom: 1px solid red">
                                     <div class="card bg-light">
 
-                                            <td style="text-align: right">{{ matchesfull.home_team}}</td>
+                                            <td style="text-align: right"><img src="{{ matchesfull.home_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                                              <b>{{ matchesfull.home_team}}</b></td>
                                             <td style="text-align: center"><strong>vs</strong></td>
-                                            <td>{{ matchesfull.guest_team }}</td>
-                                             <td> at - {{ matchesfull.match_day }} </td>
+                                            <td><img src="{{ matchesfull.guest_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                                              <b>{{ matchesfull.guest_team}}</b></td>
+                                            <td> day - {{ matchesfull.match_day }} </td>
 
                                     </div>
                                 </tr>

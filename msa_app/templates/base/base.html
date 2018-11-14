@@ -40,7 +40,7 @@
                     <a class="nav-link" href="{% url 'msa_app:role_list' %}">Roles</a>
                 </li>
                 {% endif %}
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and user.groups.all and user.groups.all.0.name == "Coach" %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'msa_app:myteamplayer_list' pk=user.pk %}" >My Team</a>
                 </li>

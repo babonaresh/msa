@@ -116,11 +116,16 @@ def player_detail(request, pk):
 
 @login_required
 def myteamplayer_list(request, pk):
-    coach_id = get_object_or_404(User, pk=pk)
-    teamid = get_object_or_404(Team, coach_id=pk)
-    myPlayer = Player.objects.filter(team=teamid.id)
-    return render(request, 'custom/myteamplayer_list.html',
-                            {'myplayer': myPlayer})
+        #team = get_object_or_404(Team, coach_id=pk)
+    try:
+        team = Team.objects.get(coach_id=pk)
+        if team != None:
+            myPlayer = Player.objects.filter(team=team.id)
+            return render(request, 'custom/myteamplayer_list.html',
+                                     {'myplayer': myPlayer})
+    except Team.DoesNotExist:
+            return render(request, 'custom/myteamplayer_list.html',
+                          {'myplayer': None})
 
 
 @login_required
