@@ -28,6 +28,7 @@ urlpatterns = [
 
     path('assign_role', views.assign_role, name='assign_role'),
     path('roles', views.role_list, name='role_list'),
+    path('roles/delete/<int:pk>/', views.delete_role, name='delete_role'),
 ]
 
 if settings.DEBUG:
