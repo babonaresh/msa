@@ -86,8 +86,8 @@ def team_list(request):
     return render(request, 'custom/team_list.html',
                  {'team_list': team_list})
 
-@login_required
 
+@login_required
 def team_delete(request, pk):
     team = get_object_or_404(Team, pk=pk)
     team.delete()
@@ -144,8 +144,8 @@ def player_edit(request, pk):
     return render(request, 'custom/player_edit.html', {'form': form})
 
 
-@login_required
 
+@login_required
 def player_delete(request, pk):
     player = get_object_or_404(Player, pk=pk)
     player.delete()
@@ -157,39 +157,47 @@ def player_delete(request, pk):
 @login_required
 def role_list(request):
     user_list = User.objects.all()
-    role_list = Msarole.objects.all()
-    form = AssignRoleForm()
-    return render(request, 'custom/roles.html', {'roles_list': role_list, 'user_list': user_list, 'form': form, 'sent':False})
+    role_list = Msarole.objects.filter(registered='No')
+    return render(request, 'custom/roles.html', {'roles_list': role_list, 'user_list': user_list,
+                                                 'sent': 'False', 'Emailid': 'None'})
 
 
 @login_required
 def assign_role(request):
     form = AssignRoleForm(request.POST or None)
-    sent = False
     user_list = User.objects.all()
-    role_list = Msarole.objects.all()
+    role_list = Msarole.objects.filter(registered='No')
     if request.method == "POST":
         form = AssignRoleForm(request.POST)
         if form.is_valid():
             assignrole = form.save(commit=False)
-            # validate the emailid (alert if already exists with same role)
             assignrole.save()
             cd = form.cleaned_data
+            host_name = request.get_host()
+            print('host_name--', host_name)
+            host_url = request.get_full_path()
+            print('host_url--', host_url)
+            final_url = 'http://' + host_name + "/register"
+            print('final_url--', final_url)
            # post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = 'Activate your MSA account as ' + cd['role']
-            message = 'Please register at MSA as  '
+            message = "Hi!\n You are selected as '" + cd['role'] +"' from MSA administration." \
+                    "\nPlease register at MSA using below link \n " +final_url + "\n Thanks ! MSA"
+            #message = 'Please register at MSA as  ' + cd['role'] + 'using below url.'+ final_url + 'Thanks ! MSA'
 
             send_mail(subject, message, 'mavstaruno@gmail.com', [cd['receiver_email']])
-            sent = True
-
-            form = AssignRoleForm()
-            return render(request, 'custom/roles.html', {'roles_list': role_list, 'user_list': user_list, 'form': form, 'sent': sent})
+            return render(request, 'custom/roles.html', {'roles_list': role_list, 'user_list': user_list,
+                                                         'sent': 'True', 'emailid': cd['receiver_email']})
     else:
         form = AssignRoleForm()
-    # print("Else")
-    #return render(request, 'custom/assign_roles.html', {'form': form})
-    return render(request, 'custom/roles.html',
-                  {'roles_list': role_list, 'user_list': user_list, 'form': form, 'sent': sent})
+    return render(request, 'custom/assign_roles.html', {'form': form})
+
+
+@login_required
+def delete_role(request, pk):
+    msarole = get_object_or_404(Msarole, pk=pk)
+    msarole.delete()
+    return redirect('msa_app:role_list')
 
 
 #Session Views
@@ -230,6 +238,7 @@ def register_view(request):
         login(request, new_user)
         return redirect('msa_app:home')
 
+
     context = {
         "form": form,
         "title": title
@@ -268,3 +277,5 @@ def change_password(request):
 
 def password_success(request):
     return render(request, 'registration/change_password_success.html')
+
+

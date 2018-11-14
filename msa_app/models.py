@@ -186,7 +186,6 @@ class Goal(models.Model):
         return str(self.player) + ' - ' + str(self.created_date) + ' - ' + str(self.goal_minute)
 
 
-
 class Msarole(models.Model):
 
     ROLE_CHOICES = (
@@ -194,7 +193,7 @@ class Msarole(models.Model):
           ('Coach', 'Coach'),
           ('Referee', 'Referee'),
     )
-    role = models.CharField(max_length=20,choices=ROLE_CHOICES)
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     receiver_name = models.CharField(max_length=10)
     receiver_email = models.EmailField(max_length=100)
     registered = models.CharField(max_length=10, default='No')

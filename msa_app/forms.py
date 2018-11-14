@@ -22,9 +22,22 @@ class PlayerForm(forms.ModelForm):
 
 
 class AssignRoleForm(forms.ModelForm):
-     class Meta:
+    class Meta:
         model = Msarole
         fields = ['role', 'receiver_name', 'receiver_email']
+
+    def clean(self):
+        receiver_email = self.cleaned_data['receiver_email']
+        try:
+           msarole = Msarole.objects.filter(receiver_email=receiver_email).order_by('receiver_name').first()
+           print('msarole--', msarole)
+        except ObjectDoesNotExist:
+            return receiver_email
+        if msarole:
+            raise forms.ValidationError('Email is already taken and assigned to '+msarole.role+'')
+
+
+
 
 
 User = get_user_model()
