@@ -13,110 +13,133 @@
         <li><a class="nav-link" id="results-tab" data-toggle="tab" href="#results" role="tab" aria-controls="results" aria-selected="true">Results</a></li>
         <li><a class="nav-link" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All Matches</a></li>
         </ul></br>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="upcoming-tab" id="upcoming">
-                    <div class="table-responsive">
-                        <table class="table table-sm table-hover">
-                            <tbody>
-                                {% for match in matches_sch %}
-                                <tr>
-                                    <td>
-                                        <a class="fa-icons" href="{% url 'msa_app:match_detail' pk=match.pk %}">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        &nbsp
-                                        <a class="fa-icons" href="#">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                        &nbsp
-                                        <a class="fa-icons" href="#">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                        &nbsp
-                                        <a class="fa-icons" href="#">
-                                            <i class="fa fa-play-circle"></i>
-                                        </a>
-                                    </td>
-                                    <td style="text-align: right">
-                                        <img src="{{ team.team_logo.url }}" width="20">
-                                        {{ match.home_team}}
-                                    </td>
-                                    <td style="text-align: center"><strong>vs</strong></td>
-                                    <td>{{ match.guest_team }}</td>
-                                    <td>{{ match.match_day }}, {{ match.match_start_time }}</td>
-                                    <td>{{ match.field }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                      </table>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="upcoming-tab" id="upcoming">
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <tbody>
+                            {% for match in matches_sch %}
+                            <tr>
+                                <td>
+                                    <a class="fa-icons" href="{% url 'msa_app:match_detail' pk=match.pk %}">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    &nbsp
+                                    <a class="fa-icons" href="#">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    &nbsp
+                                    <a class="fa-icons" href="#">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                    &nbsp
+                                    <a class="fa-icons" href="#">
+                                        <i class="fa fa-play-circle"></i>
+                                    </a>
+                                </td>
+                                <td style="text-align: right">
+                                    <img src="{{ team.team_logo.url }}" width="20">
+                                    {{ match.home_team}}
+                                </td>
+                                <td style="text-align: center"><strong>vs</strong></td>
+                                <td>{{ match.guest_team }}</td>
+                                <td>{{ match.match_day }}, {{ match.match_start_time }}</td>
+                                <td>{{ match.field }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
-          </div>
-          <div class="tab-pane fade" id="results" role="tabpanel" aria-labelledby="results-tab" >
-              <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                  <tr class="bg-info">
-                      <th>Home Team</th>
-                      <th>Guest Team</th>
-                      <th>Team 1 Goal</th>
-                      <th>Team 2 Goal</th>
-                      <th>Scheduled On</th>
-                      <th>Field</th>
-                      <th>Referee</th>
-                      <th>Status</th>
-                      <th>Referee Comment</th>
-                      <!-- <th colspan="3">Actions</th> -->
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {% for matchesfull in matches_full %}
-                  <tr>
-                      <td>{{ matchesfull.home_team}}</td>
-                      <td>{{ matchesfull.guest_team }}</td>
-                      <td>{{ matchesfull.home_team_score }}</td>
-                      <td>{{ matchesfull.guest_team_score }}</td>
-                      <td>{{ matchesfull.match_day }}</td>
-                      <td>{{ matchesfull.field }}</td>
-                      <td>{{ matchesfull.match_referee }}</td>
-                      <td>{{ matchesfull.match_status }}</td>
-                      <td>{{ matchesfull.referee_comments }}</td>
-                  </tr>
-                  {% endfor %}
-                  </tbody>
-              </table>
-          </div>
-          <div class="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab" >
-              <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                  <tr class="bg-info">
-                      <th>Home Team</th>
-                      <th>Guest Team</th>
-                      <th>Scheduled On</th>
-                      <th>Start AT</th>
-                      <th>End By</th>
-                      <th>Field</th>
-                      <th>Referee</th>
-                      <th>Status</th>
-                      <th>Referee Comment</th>
-                      <!-- <th colspan="3">Actions</th> -->
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {% for matchesfull in matches_all %}
-                  <tr>
-                      <td>{{ matchesfull.home_team}}</td>
-                      <td>{{ matchesfull.guest_team }}</td>
-                      <td>{{ matchesfull.match_day }}</td>
-                      <td>{{ matchesfull.match_start_time }}</td>
-                      <td>{{ matchesfull.match_end_time }}</td>
-                      <td>{{ matchesfull.field }}</td>
-                      <td>{{ matchesfull.match_referee }}</td>
-                      <td>{{ matchesfull.match_status }}</td>
-                      <td>{{ matchesfull.referee_comments }}</td>
-                  </tr>
-                  {% endfor %}
-                  </tbody>
-              </table>
-          </div>
+            </div>
+            <div class="tab-pane fade" id="results" role="tabpanel" aria-labelledby="results-tab" >
+            <!-- New Table -->
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <tbody>
+                            {% for match in matches_full %}
+                            <tr>
+                                <td>
+                                    <a class="fa-icons" href="{% url 'msa_app:match_detail' pk=match.pk %}">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    &nbsp
+                                    <a class="fa-icons" href="#">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    &nbsp
+                                    <a class="fa-icons" href="#">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                                <td style="text-align: right">
+                                    <img src="{{ team.team_logo.url }}" width="20">
+                                    {{ match.home_team}}
+                                </td>
+                                <td style="text-align: center">
+                                    <strong>({{match.home_team_score}} - {{match.guest_team_score}})</strong>
+                                </td>
+                                <td>{{ match.guest_team }}</td>
+                                <td>{{ match.match_day }}, {{ match.match_start_time }}</td>
+                                <td>{{ match.field }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          <!-- New Table -->
+            <div class="tab-pane fade" id="all" role="tabpanel" aria-labelledby="all-tab" >
+                <!-- New Table -->
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <tbody>
+                            {% for match in matches_all %}
+                            <tr>
+                                <td>
+                                    <a class="fa-icons" href="{% url 'msa_app:match_detail' pk=match.pk %}">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    &nbsp
+                                    <a class="fa-icons" href="#">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    &nbsp
+                                    <a class="fa-icons" href="#">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                                <td style="text-align: right">
+                                    <img src="{{ team.team_logo.url }}" width="20">
+                                    {{ match.home_team}}
+                                </td>
+                                <td style="text-align: center">
+                                    <strong>({{match.home_team_score}} - {{match.guest_team_score}})</strong>
+                                </td>
+                                <td>{{ match.guest_team }}</td>
+                                <td>{{ match.match_day }}, {{ match.match_start_time }}</td>
+                                <td>
+                                    {% if match.match_status == 'scheduled' %}
+                                        Scheduled
+                                    {% elif match.match_status == 'in_progress'%}
+                                        In Progress
+                                    {% elif match.match_status == 'full_time'%}
+                                        Full Time
+                                    {% elif match.match_status == 'cancelled'%}
+                                        Cancelled
+                                    {% elif match.match_status == 'abandoned'%}
+                                        Abandoned
+                                    {% else %}
+                                        Status - Not Available
+                                    {% endif %}
+                                </td>
+                                <td>{{ match.field }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          <!-- New Table -->
         </div>
     </div>
 </div>
