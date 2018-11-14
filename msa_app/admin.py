@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import School, Field, Team, Match, Player, Goal
+from .models import School, Field, Team, Match, Player, Goal, Msarole
 
 # Register your models here.
 
@@ -38,6 +38,12 @@ class GoalList(admin.ModelAdmin):
     list_filter = ('team', 'player')
     search_fields = ('team', 'player')
     ordering = ['-created_date']
+    
+class MsaroleList(admin.ModelAdmin):
+    list_display = ('role', 'receiver_name', 'receiver_email')
+    list_filter = ('role', 'receiver_name')
+    search_fields = ('role', 'receiver_name')
+    ordering = ['-role']
 
 admin.site.register(School, SchoolList)
 admin.site.register(Field, FieldList)
@@ -45,3 +51,4 @@ admin.site.register(Team)
 admin.site.register(Match, MatchList)
 admin.site.register(Player, PlayerList)
 admin.site.register(Goal, GoalList)
+admin.site.register(Msarole, MsaroleList)
