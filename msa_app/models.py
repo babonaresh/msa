@@ -119,7 +119,7 @@ class Match(models.Model):
         self.save()
 
     def __str__(self):
-        return str(self.home_team) + ' vs ' + str(self.guest_team) + ' - ' + str(self.match_day)
+        return str(self.home_team) + ' vs ' + str(self.guest_team) + ' (' + str(self.match_day) + ')'
 
 class Player(models.Model):
     ELIGIBITY_CHOICES = (

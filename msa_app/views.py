@@ -98,8 +98,21 @@ def team_delete(request, pk):
 ##############
 def player_list(request):
     player_list = Player.objects.filter(created_date__lte=timezone.now())
+    player_count = player_list.count()
     return render(request, 'custom/player_list.html',
-                 {'player_list': player_list})
+                 {'player_list': player_list,
+                  'player_count': player_count})
+
+def player_detail(request, pk):
+    player = get_object_or_404(Player, pk=pk)
+    team = player.team
+    goal_list = Goal.objects.filter(player=player).order_by('-created_date')[:5]
+    #goal_list = Goal.objects.filter(player=player)
+    goals_count = goal_list.count()
+    return render(request, 'custom/player_detail.html', {'player': player,
+                                                'goal_list': goal_list,
+                                                'goals_count': goals_count,
+                                                'team': team })
 
 @login_required
 def myteamplayer_list(request, pk):

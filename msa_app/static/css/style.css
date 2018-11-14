@@ -88,6 +88,12 @@ h2, h3 {
 
 }
 @media (max-width: 576px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2{
+        font-size: 1.4rem;
+    }
     h3 {
         font-size: 1.1rem;
     }
