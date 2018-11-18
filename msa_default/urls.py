@@ -23,8 +23,10 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', login_view, name='login'),
-    path('logout/', logout_view, name='logout'),
+    re_path(r'^accounts/login/$', login_view, name='login'),
+    re_path(r'^accounts/logout/$', logout_view, name='logout'),
+    #path('login/', login_view, name='login'),
+    #path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
     url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.password_reset_done, name='password_reset_done'),

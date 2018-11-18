@@ -70,6 +70,7 @@ class Team(models.Model):
     school = models.ForeignKey(School,on_delete=models.CASCADE, related_name='team_school')
     active_status = models.CharField(max_length=10, choices=ACTIVE_CHOICES, default='active')
     team_logo = models.ImageField(upload_to='team-logo/', blank=True, null=True)
+    team_logo_url = models.CharField(max_length=510, default='https://ibb.co/hj3G9f', null=True)
     coach = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='team_coach', null=True)
     created_date = models.DateTimeField(default=timezone.now)
     updated_date = models.DateTimeField(auto_now_add=True)

@@ -21,7 +21,7 @@
 
                         <div class="row">
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4">
-                                <img src="{{ matcheslive.home_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"><br/>
+                                <img src="{{ matcheslive.home_team.team_logo_url }}" class="img-fluid mx-auto mb-3" width="70"><br/>
                                 <b>{{matcheslive.home_team}}</b>
                             </div>
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4 my-auto">
@@ -34,7 +34,7 @@
                                 </p>
                             </div>
                        <div class="col-4 col-sm-4 col-md-4 col-lg-4">
-                           <img src="{{ matcheslive.guest_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                           <img src="{{ matcheslive.guest_team.team_logo_url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
                         <b>{{ matcheslive.guest_team}}</b>
                     </div>
                     </div>
@@ -60,10 +60,10 @@
                                 <tr style="border-bottom: 1px solid red">
                                     <div class="card bg-light">
 
-                                            <td style="text-align: right"><img src="{{ match.home_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                                            <td style="text-align: right"><img src="{{ match.home_team.team_logo_url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
                                               <b>{{ match.home_team}}</b></td>
                                             <td style="text-align: center"><strong>vs</strong></td>
-                                            <td><img src="{{ match.guest_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                                            <td><img src="{{ match.guest_team.team_logo_url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
                                               <b>{{ match.guest_team}}</b></td>
                                             <td> at - {{ match.match_day }} </td>
 
@@ -88,10 +88,10 @@
                                 <tr style="border-bottom: 1px solid red">
                                     <div class="card bg-light">
 
-                                            <td style="text-align: right"><img src="{{ matchesfull.home_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                                            <td style="text-align: right"><img src="{{ matchesfull.home_team.team_logo_url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
                                               <b>{{ matchesfull.home_team}}</b></td>
                                             <td style="text-align: center"><strong>vs</strong></td>
-                                            <td><img src="{{ matchesfull.guest_team.team_logo.url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
+                                            <td><img src="{{ matchesfull.guest_team.team_logo_url }}" class="img-fluid mx-auto mb-3" width="70"> <br/>
                                               <b>{{ matchesfull.guest_team}}</b></td>
                                             <td> day - {{ matchesfull.match_day }} </td>
 
