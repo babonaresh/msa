@@ -33,18 +33,43 @@ def match_list(request):
                                                    'matches_full': matches_full,
                                                    'matches_all': matches_all})
 
-@login_required
 def match_detail(request, pk):
     match = get_object_or_404(Match, pk=pk)
     home_team = match.home_team
     guest_team = match.guest_team
     home_goals = Goal.objects.filter(match=match, team=home_team)
     guest_goals = Goal.objects.filter(match=match, team=guest_team)
+    home_goal_form = GoalForm(team_id=home_team.id)
+    guest_goal_form = GoalForm(team_id=guest_team.id)
+    if request.method == "POST" and 'home_goal_submit' in request.POST:
+        home_goal_form = GoalForm(request.POST, team_id=home_team.id)
+        if home_goal_form.is_valid():
+            goal = home_goal_form.save(commit=False)
+            goal.created_date = timezone.now()
+            goal.match = get_object_or_404(Match, pk=pk)
+            goal.team = home_team
+            goal.save()
+    elif request.method == "POST" and 'guest_goal_submit' in request.POST:
+        guest_goal_form = GoalForm(request.POST, team_id=guest_team.id)
+        if guest_goal_form.is_valid():
+            goal = guest_goal_form.save(commit=False)
+            goal.created_date = timezone.now()
+            goal.match = get_object_or_404(Match, pk=pk)
+            goal.team = guest_team
+            goal.save()
+
     return render(request, 'custom/match_detail.html', {'match': match,
                                                 'home_team': home_team,
                                                 'guest_team': guest_team,
                                                 'home_goals': home_goals,
-                                                'guest_goals': guest_goals})
+                                                'guest_goals': guest_goals,
+                                                'home_goal_form': home_goal_form,
+                                                'guest_goal_form': guest_goal_form})
+
+def load_players(request):
+    team_id = request.GET.get('team')
+    players = Player.objects.filter(team_id=team_id).order_by('first_name')
+    return render(request, 'custom/ext/player_dynamic.html', {'players', players})
 
 # Team Views
 #############

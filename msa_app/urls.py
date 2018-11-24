@@ -15,8 +15,10 @@ urlpatterns = [
     url(r'^password/success/$', views.password_success, name='password_success'),
 
     path('team_list', views.team_list, name='team_list'),
+
     path('match_list', views.match_list, name='match_list'),
     path('match/<int:pk>/', views.match_detail, name='match_detail'),
+
     path('team/<int:pk>/edit/', views.team_edit, name='team_edit'),
     path('team/new/', views.team_new, name='team_new'),
     path('team/<int:pk>/delete/', views.team_delete, name='team_delete'),

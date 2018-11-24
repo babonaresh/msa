@@ -8,12 +8,24 @@ import re
 class TeamForm(forms.ModelForm):
     class Meta:
         model = Team
-        fields = ('team_name', 'team_logo', 'school','active_status','coach')
+        fields = ('team_name', 'team_logo_url', 'school','active_status','coach')
 
 class GoalForm(forms.ModelForm):
     class Meta:
         model = Goal
-        fields = ('match', 'team', 'player', 'goal_minute')
+        fields = ('player', 'goal_minute')
+
+    def __init__(self, *args, **kwargs):
+        team_id=kwargs.pop('team_id')
+        super(GoalForm, self).__init__(*args, **kwargs)
+        self.fields['player'].queryset = Player.objects.filter(team__id=team_id)
+
+
+# class GoalForm(forms.Form):
+#     def __init__(self, *args, **kwargs):
+#         self.match_id = kwargs.pop('match_id')
+#         model = Goal
+#         fields = ('match', 'team', 'player', 'goal_minute')
 
 class PlayerForm(forms.ModelForm):
     class Meta:
