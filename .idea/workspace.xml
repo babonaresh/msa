@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="771945f3-a805-4479-b4cb-8343ed7ba417" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msa_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/msa_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msa_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/msa_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msa_app/templates/custom/match_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/msa_app/templates/custom/match_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msa_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/msa_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msa_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/msa_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -146,14 +143,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="226" />
-          <entry key="py" value="727" />
+          <entry key="html" value="341" />
+          <entry key="py" value="1454" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="226" />
-          <entry key="Python" value="727" />
+          <entry key="HTML" value="341" />
+          <entry key="Python" value="1454" />
         </counts>
       </usages-collector>
     </session>
@@ -172,26 +169,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/msa_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-93">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="246">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <marker date="1543092687550" expanded="true" signature="3323:3522" ph="..." />
+                <marker date="1543109413208" expanded="true" signature="4150:4349" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/match_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/msa_app/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -212,11 +200,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/msa_app/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-872">
-              <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+            <state relative-caret-position="199">
+              <caret line="107" column="52" lean-forward="true" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -227,11 +215,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/msa_app/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="79" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
+            <state relative-caret-position="289">
+              <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
+                <marker date="1543106170984" expanded="true" signature="865:867" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/match_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="82" column="71" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -249,6 +247,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>goalfor</find>
+      <find>count</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -269,10 +268,10 @@
         <option value="$PROJECT_DIR$/msa_default/settings.py" />
         <option value="$PROJECT_DIR$/msa_app/models.py" />
         <option value="$PROJECT_DIR$/msa_app/templates/custom/ext/player_dynamic.html" />
-        <option value="$PROJECT_DIR$/msa_app/forms.py" />
-        <option value="$PROJECT_DIR$/msa_app/views.py" />
-        <option value="$PROJECT_DIR$/msa_app/templates/custom/match_detail.html" />
         <option value="$PROJECT_DIR$/msa_app/urls.py" />
+        <option value="$PROJECT_DIR$/msa_app/forms.py" />
+        <option value="$PROJECT_DIR$/msa_app/templates/custom/match_detail.html" />
+        <option value="$PROJECT_DIR$/msa_app/views.py" />
       </list>
     </option>
   </component>
@@ -571,36 +570,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/msa_app/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-872">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/msa_app/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="79" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/ext/player_dynamic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="75" selection-start-line="2" selection-start-column="75" selection-end-line="2" selection-end-column="75" />
-          <folding>
-            <element signature="e#119#125#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/ext/player_dynamic.html" />
     <entry file="file://$PROJECT_DIR$/msa_app/templates/base/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-289">
@@ -611,30 +581,51 @@
     <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/player_detail.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/msa_app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-            <marker date="1543092687550" expanded="true" signature="3323:3522" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/match_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/msa_app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="19" column="69" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msa_app/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <marker date="1543106170984" expanded="true" signature="865:867" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/match_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="82" column="71" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msa_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1543109413208" expanded="true" signature="4150:4349" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msa_app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="107" column="52" lean-forward="true" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

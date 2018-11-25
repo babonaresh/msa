@@ -34,13 +34,21 @@ def match_list(request):
                                                    'matches_all': matches_all})
 
 def match_detail(request, pk):
+    #Getting details
     match = get_object_or_404(Match, pk=pk)
     home_team = match.home_team
     guest_team = match.guest_team
     home_goals = Goal.objects.filter(match=match, team=home_team)
     guest_goals = Goal.objects.filter(match=match, team=guest_team)
+
+    #Getting page forms
     home_goal_form = GoalForm(team_id=home_team.id)
     guest_goal_form = GoalForm(team_id=guest_team.id)
+
+    match_status_form = MatchStatusForm()
+    match_status_form.fields['match_status'].initial = match.match_status
+
+    #Handling POST requests
     if request.method == "POST" and 'home_goal_submit' in request.POST:
         home_goal_form = GoalForm(request.POST, team_id=home_team.id)
         if home_goal_form.is_valid():
@@ -58,11 +66,23 @@ def match_detail(request, pk):
             goal.team = guest_team
             goal.save()
 
+    elif request.method == "POST" and 'update_match_status' in request.POST:
+        match_status_form = MatchStatusForm(request.POST, instance=match)
+        if match_status_form.is_valid():
+            print('>>>>Match Status Valid')
+            match = match_status_form.save(commit=False)
+            match.home_team_score = home_goals.count()
+            match.guest_team_score = guest_goals.count()
+            print('>>Home Goals - ', home_goals.count())
+            print('>>Guest Goals - ', guest_goals.count())
+            match.save()
+
     return render(request, 'custom/match_detail.html', {'match': match,
                                                 'home_team': home_team,
                                                 'guest_team': guest_team,
                                                 'home_goals': home_goals,
                                                 'guest_goals': guest_goals,
+                                                'match_status_form': match_status_form,
                                                 'home_goal_form': home_goal_form,
                                                 'guest_goal_form': guest_goal_form})
 

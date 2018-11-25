@@ -1,5 +1,5 @@
 from django import forms
-from .models import Team, Goal, Player, Msarole
+from .models import Team, Goal, Player, Msarole, Match
 from django.forms.utils import ValidationError
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.core.exceptions import ObjectDoesNotExist
@@ -21,11 +21,10 @@ class GoalForm(forms.ModelForm):
         self.fields['player'].queryset = Player.objects.filter(team__id=team_id)
 
 
-# class GoalForm(forms.Form):
-#     def __init__(self, *args, **kwargs):
-#         self.match_id = kwargs.pop('match_id')
-#         model = Goal
-#         fields = ('match', 'team', 'player', 'goal_minute')
+class MatchStatusForm(forms.ModelForm):
+    class Meta:
+        model = Match
+        fields = ('match_status',)
 
 class PlayerForm(forms.ModelForm):
     class Meta:
