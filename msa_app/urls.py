@@ -16,12 +16,16 @@ urlpatterns = [
 
     path('team_list', views.team_list, name='team_list'),
 
-    path('match_list', views.match_list, name='match_list'),
+    #path('match_list', views.match_list, name='match_list'),
+    path('match_list/<int:pk>', views.match_list, name='match_list'),
     path('match/<int:pk>/', views.match_detail, name='match_detail'),
+    path('match/<int:pk>/edit', views.match_edit, name='match_edit'),
+    path('match/new', views.match_new, name='match_new'),
 
     path('team/<int:pk>/edit/', views.team_edit, name='team_edit'),
     path('team/new/', views.team_new, name='team_new'),
     path('team/<int:pk>/delete/', views.team_delete, name='team_delete'),
+
     path('player_list', views.player_list, name='player_list'),
     path('player_list/<int:pk>/', views.myteamplayer_list, name='myteamplayer_list'),
     path('player/new/', views.player_new, name='player_new'),

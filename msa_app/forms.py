@@ -20,6 +20,11 @@ class GoalForm(forms.ModelForm):
         super(GoalForm, self).__init__(*args, **kwargs)
         self.fields['player'].queryset = Player.objects.filter(team__id=team_id)
 
+class MatchForm(forms.ModelForm):
+    class Meta:
+        model = Match
+        fields = ('home_team', 'guest_team', 'match_day', 'match_start_time', 'match_end_time',
+                  'field', 'match_referee', 'match_status', 'referee_comments')
 
 class MatchStatusForm(forms.ModelForm):
     class Meta:

@@ -25,13 +25,24 @@ def home(request):
 
 # Match Views
 #############
-def match_list(request):
-    matches_sch = Match.objects.filter(match_status='scheduled')
-    matches_full = Match.objects.filter(match_status='full_time')
-    matches_all = Match.objects.filter(created_date__lte=timezone.now())
-    return render(request, 'custom/match_list.html', {'matches_sch': matches_sch,
-                                                   'matches_full': matches_full,
-                                                   'matches_all': matches_all})
+def match_list(request, pk):
+    if(pk == 1):
+        match_list = Match.objects.filter(created_date__lte=timezone.now())
+        list_type = 'all'
+    elif(pk == 2):
+        match_list = Match.objects.filter(match_status='in_progress')
+        list_type = 'in_progress'
+    elif(pk == 3):
+        match_list = Match.objects.filter(match_status='full_time')
+        list_type = 'finished'
+    elif(pk == 4):
+        match_list = Match.objects.filter(match_status='scheduled')
+        list_type = 'scheduled'
+    else:
+        match_list = Match.objects.filter(created_date__lte=timezone.now())
+        list_type = 'all'
+    return render(request, 'custom/match_list.html', {'match_list': match_list,
+                                                          'list_type': list_type})
 
 def match_detail(request, pk):
     #Getting details
@@ -86,10 +97,41 @@ def match_detail(request, pk):
                                                 'home_goal_form': home_goal_form,
                                                 'guest_goal_form': guest_goal_form})
 
-def load_players(request):
-    team_id = request.GET.get('team')
-    players = Player.objects.filter(team_id=team_id).order_by('first_name')
-    return render(request, 'custom/ext/player_dynamic.html', {'players', players})
+@login_required
+def match_edit(request, pk):
+    match = get_object_or_404(Match, pk=pk)
+    if request.method == "POST":
+        #update
+        form = MatchForm(request.POST,instance=match)
+        if form.is_valid():
+            match = form.save(commit=False)
+            match.updated_date = timezone.now()
+            match.save()
+            match_list = Match.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'custom/match_list.html', {'match_list': match_list,
+                                                              'list_type': 'all'})
+    else:
+        # edit
+        form = MatchForm(instance = match)
+    return render(request, 'custom/match_edit.html', {'form': form})
+
+@login_required
+def match_new(request):
+    if request.method == "POST":
+        #update
+        form = MatchForm(request.POST)
+        if form.is_valid():
+            match = form.save(commit=False)
+            match.created_date = timezone.now()
+            match.save()
+            match_list = Match.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'custom/match_list.html', {'match_list': match_list,
+                                                              'list_type': 'all'})
+    else:
+        # edit
+        form = MatchForm()
+    return render(request, 'custom/match_edit.html', {'form': form})
+
 
 # Team Views
 #############
