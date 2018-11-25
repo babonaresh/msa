@@ -29,7 +29,7 @@ class MatchForm(forms.ModelForm):
 class MatchStatusForm(forms.ModelForm):
     class Meta:
         model = Match
-        fields = ('match_status',)
+        fields = ('match_status', 'referee_comments')
 
 class PlayerForm(forms.ModelForm):
     class Meta:

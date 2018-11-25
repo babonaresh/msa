@@ -58,6 +58,7 @@ def match_detail(request, pk):
 
     match_status_form = MatchStatusForm()
     match_status_form.fields['match_status'].initial = match.match_status
+    match_status_form.fields['referee_comments'].initial = match.referee_comments
 
     #Handling POST requests
     if request.method == "POST" and 'home_goal_submit' in request.POST:
