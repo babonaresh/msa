@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="771945f3-a805-4479-b4cb-8343ed7ba417" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msa_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/msa_app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msa_app/templates/custom/match_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/msa_app/templates/custom/match_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msa_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/msa_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,14 +144,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="70" />
-          <entry key="html" value="812" />
+          <entry key="html" value="840" />
           <entry key="py" value="2243" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="70" />
-          <entry key="HTML" value="812" />
+          <entry key="HTML" value="840" />
           <entry key="Python" value="2243" />
         </counts>
       </usages-collector>
@@ -169,7 +166,7 @@
               <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <marker date="1543176626089" expanded="true" signature="5888:5890" ph="..." />
+                <marker date="1543177457888" expanded="true" signature="5888:5890" ph="..." />
               </folding>
             </state>
           </provider>
@@ -178,8 +175,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/match_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="79" column="82" selection-start-line="79" selection-start-column="82" selection-end-line="79" selection-end-column="82" />
+            <state relative-caret-position="342">
+              <caret line="80" column="55" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -664,8 +661,8 @@
           <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-            <marker date="1543176569675" expanded="true" signature="785:1001" ph="..." />
-            <marker date="1543176569675" expanded="true" signature="1132:1134" ph="..." />
+            <marker date="1543177457885" expanded="true" signature="785:1001" ph="..." />
+            <marker date="1543177457885" expanded="true" signature="1132:1134" ph="..." />
           </folding>
         </state>
       </provider>
@@ -686,7 +683,7 @@
           <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
-            <marker date="1543176626089" expanded="true" signature="5888:5890" ph="..." />
+            <marker date="1543177457888" expanded="true" signature="5888:5890" ph="..." />
           </folding>
         </state>
       </provider>
@@ -700,8 +697,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/msa_app/templates/custom/match_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="79" column="82" selection-start-line="79" selection-start-column="82" selection-end-line="79" selection-end-column="82" />
+        <state relative-caret-position="342">
+          <caret line="80" column="55" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
         </state>
       </provider>
     </entry>

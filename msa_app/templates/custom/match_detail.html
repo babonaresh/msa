@@ -63,13 +63,13 @@
             <hr>
             <div class="row mx-1">
                 <div class="msa-livescore-sub col-6 col-sm-6 col-md-6 col-lg-6 text-right">
-                    <form method="POST" id="goalForm" class="goal-form">{%csrf_token%}
+                    <form method="POST" id="homeGoalForm" class="goal-form">{%csrf_token%}
                         {{home_goal_form|crispy}}
                         <button type="submit" name="home_goal_submit" class="save btn btn-default">Add Goal</button>
                     </form>
                 </div>
                 <div class="msa-livescore-sub col-6 col-sm-6 col-md-6 col-lg-6 text-left">
-                    <form method="POST" id="goalForm" class="goal-form">{%csrf_token%}
+                    <form method="POST" id="guestGoalForm" class="goal-form">{%csrf_token%}
                         {{guest_goal_form|crispy}}
                         <button type="submit" name="guest_goal_submit" class="save btn btn-default">Add Goal</button>
                     </form>
@@ -78,7 +78,7 @@
             <hr>
             <div class="row mx-1">
                 <div class="msa-livescore-sub col-12 col-sm-12 col-md-12 col-lg-12 text-left">
-                    <form method="POST" id="goalForm" class="goal-form">{%csrf_token%}
+                    <form method="POST" id="matchStatusForm" class="goal-form">{%csrf_token%}
                         {{match_status_form|crispy}}
                         <button type="submit" name="update_match_status" class="save btn btn-default">Update Match Status</button>
                     </form>
