@@ -27,19 +27,19 @@ def home(request):
 #############
 def match_list(request, pk):
     if(pk == 1):
-        match_list = Match.objects.filter(created_date__lte=timezone.now())
+        match_list = Match.objects.filter(created_date__lte=timezone.now()).order_by('match_day', 'match_start_time')
         list_type = 'all'
     elif(pk == 2):
-        match_list = Match.objects.filter(match_status='in_progress')
+        match_list = Match.objects.filter(match_status='in_progress').order_by('match_day', 'match_start_time')
         list_type = 'in_progress'
     elif(pk == 3):
-        match_list = Match.objects.filter(match_status='full_time')
+        match_list = Match.objects.filter(match_status='full_time').order_by('match_day', 'match_start_time')
         list_type = 'finished'
     elif(pk == 4):
-        match_list = Match.objects.filter(match_status='scheduled')
+        match_list = Match.objects.filter(match_status='scheduled').order_by('match_day', 'match_start_time')
         list_type = 'scheduled'
     else:
-        match_list = Match.objects.filter(created_date__lte=timezone.now())
+        match_list = Match.objects.filter(created_date__lte=timezone.now()).order_by('match_day', 'match_start_time')
         list_type = 'all'
     return render(request, 'custom/match_list.html', {'match_list': match_list,
                                                           'list_type': list_type})
