@@ -62,6 +62,7 @@
             </thead>
             <tbody>
                 {% for player in players %}
+                    {{ sort }}
                     <tr>
                         <td>{{player.first_name}}{{ player.last_name }}</td>
                         <td>{{player.eligibility_status}}</td>

@@ -185,7 +185,6 @@ def team_detail(request, pk):
     team = get_object_or_404(Team, pk=pk)
     name=team.team_name
     goal_list = Goal.objects.filter(team=team).order_by('-created_date')[:10]
-    players = Player.objects.filter(team=team.id ).filter(eligibility_status='eligible')
     matchesasguest=Match.objects.filter(guest_team=team.id)
     for match in matchesasguest:
      if match.guest_team_score > match.home_team_score:
@@ -203,13 +202,13 @@ def team_detail(request, pk):
       Drawn = Drawn + 1
      if match.home_team_score < match.guest_team_score:
       Lost = Lost + 1
-
+    players = Player.objects.filter(team=team.id).filter(eligibility_status='eligible')
     for player in players:
      playergoal=Goal.objects.filter(player=player)
      if player.team_role == 'captain':
-         cap = player.last_name + player.last_name
-     playergoal_count=playergoal.count
-    goals_count = goal_list.count
+         cap = player.first_name +" "+ player.last_name
+     playergoal_count=playergoal.count()
+    goals_count = goal_list.count()
     return render(request, 'custom/team_detail.html', {'team': team,
                                                 'goal_list': goal_list,
                                                 'goals_count': goals_count,'players':players,'playergoal_count':playergoal_count,
