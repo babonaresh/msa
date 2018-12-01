@@ -174,6 +174,50 @@ def team_list(request):
     return render(request, 'custom/team_list.html',
                  {'team_list': team_list})
 
+def team_detail(request, pk):
+  cap='None';
+  Won=0;
+  Lost=0;
+  Drawn=0;
+  playergoal_count=0;
+  playergoal=[]
+  try:
+    team = get_object_or_404(Team, pk=pk)
+    name=team.team_name
+    goal_list = Goal.objects.filter(team=team).order_by('-created_date')[:10]
+    players = Player.objects.filter(team=team.id ).filter(eligibility_status='eligible')
+    matchesasguest=Match.objects.filter(guest_team=team.id)
+    for match in matchesasguest:
+     if match.guest_team_score > match.home_team_score:
+      Won=Won+1;
+     if match.guest_team_score == match.home_team_score:
+      Drawn=Drawn+1
+     if  match.guest_team_score < match.home_team_score:
+      Lost=Lost+1
+
+    matchesashome = Match.objects.filter(home_team=team.id)
+    for match in matchesashome:
+     if match.home_team_score > match.guest_team_score:
+      Won = Won + 1;
+     if match.guest_team_score == match.home_team_score:
+      Drawn = Drawn + 1
+     if match.home_team_score < match.guest_team_score:
+      Lost = Lost + 1
+
+    for player in players:
+     playergoal=Goal.objects.filter(player=player)
+     if player.team_role == 'captain':
+         cap = player.last_name + player.last_name
+     playergoal_count=playergoal.count
+    goals_count = goal_list.count
+    return render(request, 'custom/team_detail.html', {'team': team,
+                                                'goal_list': goal_list,
+                                                'goals_count': goals_count,'players':players,'playergoal_count':playergoal_count,
+                                                'cap':cap,'Won':Won,'Lost':Lost,'Drawn':Drawn
+                                                      })
+  except Team.DoesNotExist:
+      return render(request, 'custom/myteam_detail.html',
+                    {'goal_list': None,'cap':None,'players':None,'goals_count':0,'playergoal_count':0})
 
 @login_required
 def team_delete(request, pk):
