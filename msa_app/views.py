@@ -204,10 +204,10 @@ def team_detail(request, pk):
       Lost = Lost + 1
     players = Player.objects.filter(team=team.id).filter(eligibility_status='eligible')
     for player in players:
-     playergoal=Goal.objects.filter(player=player)
+     #playergoal=Goal.objects.filter(player=player)
      if player.team_role == 'captain':
          cap = player.first_name +" "+ player.last_name
-     playergoal_count=playergoal.count()
+     #playergoal_count=playergoal.count()
     goals_count = goal_list.count()
     return render(request, 'custom/team_detail.html', {'team': team,
                                                 'goal_list': goal_list,
