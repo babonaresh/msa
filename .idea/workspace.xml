@@ -25,8 +25,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="771945f3-a805-4479-b4cb-8343ed7ba417" name="Default Changelist" comment="Testing using BDD Robot framework" />
-    <list id="9f0fc8f2-d2bb-4d01-886f-f4352d309dee" name="Testing using BDD Robot framework" comment="" />
+    <list default="true" id="771945f3-a805-4479-b4cb-8343ed7ba417" name="Default Changelist" comment="Testing using BDD Robot framework">
+      <change afterPath="$PROJECT_DIR$/chromedriver.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/geckodriver-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_tests/gherkin_login.robot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login_tests/resource.robot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,26 +62,34 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="697" />
-    <option name="height" value="735" />
-  </component>
+  <component name="ProjectId" id="1eIVPNH9pUKb3qskY69Dco2gZJl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="TODO_SCOPE" value="All Places" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv/Scripts" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nares.DESKTOP-GSUDTC4\PycharmProjects\msa\venv\Scripts" />
+      <recent name="C:\Users\nares.DESKTOP-GSUDTC4\PycharmProjects\msa\myvenv\Scripts" />
+      <recent name="C:\Users\nares.DESKTOP-GSUDTC4\PycharmProjects\msa" />
       <recent name="C:\Users\mshah\Python\8210\Github_team3\8210f18t3\msa_app\templates\registration" />
       <recent name="C:\Users\mshah\Python\8210\Github_team3\8210f18t3\msa_app\templates\custom" />
-      <recent name="C:\Users\mshah\Python\8210\Github_team3\8210f18t3\msa_app\templates\base" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nares.DESKTOP-GSUDTC4\PycharmProjects\msa\myvenv\Scripts" />
     </key>
   </component>
   <component name="RunManager">
@@ -110,6 +127,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541730989557</updated>
+      <workItem from="1594012049921" duration="68000" />
+      <workItem from="1594012543715" duration="1997000" />
     </task>
     <task id="LOCAL-00001" summary="added team list with stats">
       <created>1543653275251</created>
@@ -126,43 +145,27 @@
       <updated>1543707740364</updated>
     </task>
     <task id="LOCAL-00003" summary="Testing using BDD Robot framework">
-      <created>1594014919353</created>
+      <created>1594014351899</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1594014919353</updated>
+      <updated>1594014351899</updated>
     </task>
-    <task id="LOCAL-00004" summary="Testing using BDD Robot framework">
-      <created>1594015063228</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1594015063228</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.robot" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -170,19 +173,32 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added team list with stats" />
     <MESSAGE value="added player full name" />
     <MESSAGE value="Testing using BDD Robot framework" />
     <option name="LAST_COMMIT_MESSAGE" value="Testing using BDD Robot framework" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="530" y="278" key="VCS.ChangelistChooser" timestamp="1594015006752">
+    <state x="568" y="226" key="#Notifications" timestamp="1594014398326">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="530" y="278" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1594015006752" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1594015075943">
+    <state x="568" y="226" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1594014398326" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1594052481526">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1594015075943" />
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1594052481526" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1594009199682">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594009199682" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1594014563107">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1594014563107" />
+    <state x="441" y="210" key="git4idea.ui.GitUnstashDialog" timestamp="1594051326197">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="441" y="210" key="git4idea.ui.GitUnstashDialog/0.0.1366.728@0.0.1366.728" timestamp="1594051326197" />
   </component>
 </project>

@@ -1,7 +1,9 @@
 *.pyc
 *.pyo
+*~
+__pycache__
+myvenv
+venv
 db.sqlite3
 msa_default/local_settings.py
 msa_default/backup_settings.py
-myvenv
-venv
